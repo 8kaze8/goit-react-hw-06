@@ -1,4 +1,9 @@
-function Contact({ contact, onDelete }) {
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
+
+function Contact({ contact }) {
+  const dispatch = useDispatch();
+
   return (
     <div
       style={{
@@ -20,7 +25,7 @@ function Contact({ contact, onDelete }) {
         </div>
       </div>
       <button
-        onClick={() => onDelete(contact.id)}
+        onClick={() => dispatch(deleteContact(contact.id))}
         style={{
           padding: "5px 15px",
           backgroundColor: "#f0f0f0",
